@@ -1,0 +1,187 @@
+package views
+
+import (
+	"github.com/torresposso/habi/internal/pocketbase"
+	"github.com/torresposso/habi/views/components"
+)
+
+templ UserProfile(user *pocketbase.AuthResponse) {
+	@components.Layout("Dashboard") {
+		@components.Header(true)
+		
+		<style>
+			.dashboard {
+				padding: 3rem 0;
+			}
+
+			.welcome-banner {
+				background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+				border-radius: 24px;
+				padding: 3rem;
+				color: white;
+				margin-bottom: 3rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.welcome-text h1 {
+				font-size: 2.5rem;
+				margin-bottom: 0.5rem;
+			}
+
+			.welcome-text p {
+				opacity: 0.9;
+				font-size: 1.1rem;
+			}
+
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+				gap: 1.5rem;
+				margin-bottom: 3rem;
+			}
+
+			.stat-card {
+				background: var(--white);
+				padding: 1.5rem;
+				border-radius: 20px;
+				box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+				border: 1px solid #f0f0f0;
+			}
+
+			.stat-label {
+				color: var(--text-muted);
+				font-size: 0.875rem;
+				font-weight: 500;
+				margin-bottom: 0.5rem;
+			}
+
+			.stat-value {
+				font-size: 1.75rem;
+				font-weight: 700;
+				color: var(--text);
+			}
+
+			.habits-section {
+				background: var(--white);
+				border-radius: 24px;
+				padding: 2rem;
+				box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+				border: 1px solid #f0f0f0;
+			}
+
+			.section-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2rem;
+			}
+
+			.habit-row {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 1rem;
+				border-radius: 16px;
+				transition: background 0.2s;
+				border: 1px solid transparent;
+			}
+
+			.habit-row:hover {
+				background: #f9fafb;
+				border-color: #f0f0f0;
+			}
+
+			.habit-main {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+
+			.habit-check {
+				width: 32px;
+				height: 32px;
+				border-radius: 10px;
+				border: 2px solid #e1e4e8;
+				cursor: pointer;
+				transition: all 0.2s;
+			}
+
+			.habit-check:hover {
+				border-color: var(--primary);
+				background: #ecfdf5;
+			}
+
+			.habit-name {
+				font-weight: 600;
+				color: var(--text);
+			}
+
+			.habit-streak {
+				font-size: 0.875rem;
+				color: var(--primary);
+				font-weight: 600;
+				background: #ecfdf5;
+				padding: 0.25rem 0.75rem;
+				border-radius: 100px;
+			}
+		</style>
+
+		<main class="container dashboard">
+			<div class="welcome-banner">
+				<div class="welcome-text">
+					<h1>Hello, { user.Record.Name }!</h1>
+					<p>Ready to crush your goals today?</p>
+				</div>
+				<div style="font-size: 4rem;">🔥</div>
+			</div>
+
+			<div class="stats-grid">
+				<div class="stat-card">
+					<div class="stat-label">Daily Average</div>
+					<div class="stat-value">85%</div>
+				</div>
+				<div class="stat-card">
+					<div class="stat-label">Current Streak</div>
+					<div class="stat-value">12 Days</div>
+				</div>
+				<div class="stat-card">
+					<div class="stat-label">Completed Today</div>
+					<div class="stat-value">4 / 6</div>
+				</div>
+			</div>
+
+			<div class="habits-section">
+				<div class="section-header">
+					<h2>Daily Habits</h2>
+					<button class="btn btn-primary">+ Add Habit</button>
+				</div>
+
+				<div class="habits-list">
+					<div class="habit-row">
+						<div class="habit-main">
+							<div class="habit-check"></div>
+							<div class="habit-name">Morning Meditation</div>
+						</div>
+						<div class="habit-streak">5 Day Streak</div>
+					</div>
+					<div class="habit-row">
+						<div class="habit-main">
+							<div class="habit-check" style="background: var(--primary); border-color: var(--primary); display: flex; align-items: center; justify-content: center; color: white;">✓</div>
+							<div class="habit-name">Read 30 Minutes</div>
+						</div>
+						<div class="habit-streak">12 Day Streak</div>
+					</div>
+					<div class="habit-row">
+						<div class="habit-main">
+							<div class="habit-check"></div>
+							<div class="habit-name">Strength Training</div>
+						</div>
+						<div class="habit-streak">3 Day Streak</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	}
+}

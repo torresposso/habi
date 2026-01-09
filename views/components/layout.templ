@@ -1,0 +1,81 @@
+package components
+
+templ Layout(title string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title } - Habi</title>
+			<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>"/>
+			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfzYkxS3as6S0WENlKghpGqGiMwY7E4XAzYv0p7t8aW1Y69WntOef5O3zP1Vd" crossorigin="anonymous"></script>
+			<style>
+				@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+				
+				:root {
+					--primary: #10b981;
+					--primary-dark: #059669;
+					--bg: #fafafa;
+					--text: #1a1a2e;
+					--text-muted: #6b7280;
+					--white: #ffffff;
+					--glass: rgba(255, 255, 255, 0.8);
+				}
+
+				* { margin: 0; padding: 0; box-sizing: border-box; }
+				body { 
+					font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+					background: var(--bg); 
+					color: var(--text); 
+					line-height: 1.6; 
+				}
+				.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+				
+				.glass {
+					background: var(--glass);
+					backdrop-filter: blur(10px);
+					-webkit-backdrop-filter: blur(10px);
+					border: 1px solid rgba(255, 255, 255, 0.3);
+				}
+
+				.btn {
+					display: inline-flex;
+					align-items: center;
+					gap: 0.5rem;
+					padding: 0.75rem 1.5rem;
+					border-radius: 12px;
+					font-weight: 600;
+					text-decoration: none;
+					transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+					cursor: pointer;
+					border: none;
+				}
+
+				.btn-primary {
+					background: var(--primary);
+					color: white;
+				}
+
+				.btn-primary:hover {
+					background: var(--primary-dark);
+					transform: translateY(-2px);
+					box-shadow: 0 10px 20px rgba(16,185,129,0.3);
+				}
+
+				.btn-outline {
+					background: transparent;
+					border: 2px solid var(--primary);
+					color: var(--primary);
+				}
+
+				.btn-outline:hover {
+					background: var(--primary);
+					color: white;
+				}
+			</style>
+		</head>
+		<body>
+			{ children... }
+		</body>
+	</html>
+}

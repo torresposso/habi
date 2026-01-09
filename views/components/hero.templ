@@ -1,0 +1,82 @@
+package components
+
+templ Hero() {
+	<style>
+		.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%); padding: 2rem; }
+		.hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+		.hero-text h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: #1a1a2e; }
+		.hero-text h1 span { color: #10b981; }
+		.hero-text p { font-size: 1.25rem; color: #6b7280; margin-bottom: 2rem; }
+		.cta-group { display: flex; gap: 1rem; }
+		.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; border-radius: 12px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.3s ease; cursor: pointer; border: none; }
+		.btn-primary { background: #10b981; color: white; }
+		.btn-primary:hover { background: #059669; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(16,185,129,0.3); }
+		.btn-secondary { background: white; color: #374151; border: 2px solid #e5e7eb; }
+		.btn-secondary:hover { border-color: #10b981; color: #10b981; }
+		.hero-visual { display: flex; justify-content: center; }
+		.phone-mockup { width: 300px; height: 600px; background: #1a1a2e; border-radius: 40px; padding: 12px; box-shadow: 0 50px 100px rgba(0,0,0,0.15); }
+		.phone-screen { width: 100%; height: 100%; background: white; border-radius: 32px; overflow: hidden; }
+		.app-header { background: #10b981; padding: 1.5rem; text-align: center; color: white; }
+		.app-header h3 { font-size: 1.25rem; font-weight: 600; }
+		.app-content { padding: 1.5rem; }
+		.streak-card { background: #ecfdf5; border-radius: 16px; padding: 1.25rem; margin-bottom: 1rem; }
+		.streak-card h4 { color: #059669; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+		.streak-number { font-size: 2.5rem; font-weight: 700; color: #10b981; }
+		.habit-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: white; border-radius: 12px; margin-bottom: 0.75rem; border: 1px solid #f3f4f6; }
+		.habit-check { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #e5e7eb; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+		.habit-check:hover { border-color: #10b981; background: #ecfdf5; }
+		.habit-check.completed { background: #10b981; border-color: #10b981; color: white; }
+		.habit-info h5 { font-weight: 500; color: #374151; }
+		.habit-info span { font-size: 0.875rem; color: #9ca3af; }
+	</style>
+	<section class="hero">
+		<div class="container">
+			<div class="hero-content">
+				<div class="hero-text">
+					<h1>Build better <span>habits</span> with Habi</h1>
+					<p>The simplest way to track your daily habits, build streaks, and become the best version of yourself. Join thousands of users who have transformed their lives with Habi.</p>
+					<div class="cta-group">
+						<a href="/auth/login" class="btn btn-primary">Get Started Free</a>
+						<a href="#features" class="btn btn-secondary">Learn More</a>
+					</div>
+				</div>
+				<div class="hero-visual">
+					<div class="phone-mockup">
+						<div class="phone-screen">
+							<div class="app-header">
+								<h3>My Habits</h3>
+							</div>
+							<div class="app-content">
+								<div class="streak-card">
+									<h4>Current Streak</h4>
+									<div class="streak-number">21 days</div>
+								</div>
+								<div class="habit-item">
+									<div class="habit-check completed">✓</div>
+									<div class="habit-info">
+										<h5>Morning Meditation</h5>
+										<span>7:00 AM</span>
+									</div>
+								</div>
+								<div class="habit-item">
+									<div class="habit-check"></div>
+									<div class="habit-info">
+										<h5>Read 30 minutes</h5>
+										<span>8:00 PM</span>
+									</div>
+								</div>
+								<div class="habit-item">
+									<div class="habit-check completed">✓</div>
+									<div class="habit-info">
+										<h5>Exercise</h5>
+										<span>6:00 AM</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+}

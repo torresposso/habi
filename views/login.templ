@@ -1,0 +1,101 @@
+package views
+
+import "github.com/torresposso/habi/views/components"
+
+templ LoginPage() {
+	@components.Layout("Login") {
+		<style>
+			.login-section {
+				min-height: calc(100vh - 80px);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 2rem;
+				background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+			}
+
+			.login-card {
+				width: 100%;
+				max-width: 440px;
+				padding: 3rem;
+				border-radius: 24px;
+				background: var(--white);
+				box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+				text-align: center;
+			}
+
+			.login-card h1 {
+				font-size: 2rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+				color: var(--text);
+			}
+
+			.login-card p {
+				color: var(--text-muted);
+				margin-bottom: 2.5rem;
+			}
+
+			.google-btn {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1rem;
+				padding: 1rem;
+				background: var(--white);
+				border: 1px solid #e1e4e8;
+				border-radius: 12px;
+				color: var(--text);
+				font-weight: 600;
+				font-size: 1rem;
+				text-decoration: none;
+				transition: all 0.2s;
+				cursor: pointer;
+			}
+
+			.google-btn:hover {
+				background: #f8f9fa;
+				border-color: #d1d5da;
+				transform: translateY(-2px);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+			}
+
+			.google-icon {
+				width: 24px;
+				height: 24px;
+			}
+
+			.footer-text {
+				margin-top: 2rem;
+				font-size: 0.875rem;
+				color: var(--text-muted);
+			}
+
+			.footer-text a {
+				color: var(--primary);
+				text-decoration: none;
+				font-weight: 600;
+			}
+		</style>
+		
+		@components.Header(false)
+
+		<main class="login-section">
+			<div class="login-card">
+				<div style="font-size: 3rem; margin-bottom: 1.5rem;">🌱</div>
+				<h1>Welcome back</h1>
+				<p>Start tracking your habits and transform your life today.</p>
+				
+				<a href="/auth/google" class="google-btn">
+					<img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google" class="google-icon"/>
+					Continue with Google
+				</a>
+
+				<div class="footer-text">
+					Don't have an account? <a href="/">Learn more</a>
+				</div>
+			</div>
+		</main>
+	}
+}

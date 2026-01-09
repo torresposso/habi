@@ -1,0 +1,12 @@
+package views
+
+import "github.com/torresposso/habi/views/components"
+
+templ LandingPage(isLoggedIn bool) {
+	@components.Layout("Home") {
+		@components.Header(isLoggedIn)
+		@components.Hero()
+		@components.Features()
+		@components.Footer()
+	}
+}
