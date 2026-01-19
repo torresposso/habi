@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+output: prefixed
+
+tasks:
+  templ:
+    desc: Generate HTML templates
+    cmd: templ generate --watch --proxy="http://localhost:8080" --open-browser=false --cmd="go run ."
+  cloudflared:
+    desc: Run cloudflared tunnel
+    cmd: cloudflared tunnel run dev
+  css:
+    desc: Watch and build Tailwind CSS
+    cmd: bunx @tailwindcss/cli -i static/css/input.css -o static/css/app.css --watch --minify
+
+  dev:
+    desc: Start development server
+    deps: [templ, server, cloudflared, css]

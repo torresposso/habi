@@ -1,0 +1,32 @@
+services:
+  pocketbase:
+    image: ghcr.io/torresposso/pocketbase:0.35.1
+    container_name: pocketbase
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    volumes:
+      - pb_data:/pb/pb_data
+    networks:
+      - app
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - app
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  pb_data:
